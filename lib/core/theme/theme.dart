@@ -24,8 +24,8 @@ ThemeData darkTheme = ThemeData.dark().copyWith(
   scaffoldBackgroundColor: const Color(0xff14130B),
   brightness: Brightness.dark,
   textTheme: GoogleFonts.tajawalTextTheme().apply(
-    bodyColor: Colors.white,
-    displayColor: Colors.white,
+    bodyColor: const Color(0xffFFFCDA),
+    displayColor: const Color(0xffFFFCDA),
   ),
   colorScheme: const ColorScheme.dark(
     primary: Color(0xffB7A477),

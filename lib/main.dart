@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:poem_app/core/theme/theme.dart';
 import 'package:poem_app/core/theme/theme_controller.dart';
@@ -41,7 +42,7 @@ class PoemApp extends StatelessWidget {
               theme: lightTheme,
               darkTheme: darkTheme,
               // themeMode: controller.themeMode,
-              themeMode: ThemeMode.light, // for coding-testing purposes
+              themeMode: ThemeMode.system, // for coding-testing purposes
             );
           },
         );
