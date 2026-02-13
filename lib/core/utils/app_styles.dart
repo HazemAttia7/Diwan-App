@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 abstract class AppStyles {
-  // Text Fonts : 20 , 18 , 16 , 14 , 12 , 10
+  // Text Fonts : 20 , 18 , 16 , 14 , 12 , 11
 
   static final textStyle20 = TextStyle(
     fontSize: 20.sp,
@@ -21,7 +21,7 @@ abstract class AppStyles {
 
   static final textStyle14 = TextStyle(
     fontSize: 14.sp,
-    fontWeight: FontWeight.normal,
+    fontWeight: FontWeight.bold,
   );
 
   static final textStyle12 = TextStyle(
@@ -29,8 +29,8 @@ abstract class AppStyles {
     fontWeight: FontWeight.normal,
   );
 
-  static final textStyle10 = TextStyle(
-    fontSize: 10.sp,
+  static final textStyle11 = TextStyle(
+    fontSize: 11.sp,
     fontWeight: FontWeight.bold,
   );
 }
@@ -44,13 +44,13 @@ extension AppStylesX on BuildContext {
   TextStyle get textStyle16 => AppStyles.textStyle16;
 
   TextStyle get textStyle14 => AppStyles.textStyle14.copyWith(
-    color: Theme.of(this).colorScheme.secondary,
+    color: Theme.of(this).secondaryHeaderColor,
   );
 
   TextStyle get textStyle12 => AppStyles.textStyle12.copyWith(
     color: Theme.of(this).colorScheme.secondary,
   );
 
-  TextStyle get textStyle10 =>
-      AppStyles.textStyle10.copyWith(color: Theme.of(this).colorScheme.primary);
+  TextStyle get textStyle11 =>
+      AppStyles.textStyle11.copyWith(color: Theme.of(this).colorScheme.secondary);
 }

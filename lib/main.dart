@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:poem_app/core/theme/theme.dart';
 import 'package:poem_app/core/theme/theme_controller.dart';
@@ -8,6 +7,7 @@ import 'package:provider/provider.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(
     ChangeNotifierProvider(
       create: (_) => ThemeController(),
@@ -41,8 +41,7 @@ class PoemApp extends StatelessWidget {
               ],
               theme: lightTheme,
               darkTheme: darkTheme,
-              // themeMode: controller.themeMode,
-              themeMode: ThemeMode.system, // for coding-testing purposes
+              themeMode: controller.themeMode,
             );
           },
         );

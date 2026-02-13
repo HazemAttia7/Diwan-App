@@ -26,7 +26,10 @@ class CustomSearchField extends StatelessWidget {
         ),
         prefixIconColor: Theme.of(context).colorScheme.secondary,
         hintText: "ابحث عن قصيدة أو كلمة...",
-        hintStyle: context.textStyle14,
+        hintStyle: context.textStyle14.copyWith(
+          fontWeight: FontWeight.normal,
+          color: Theme.of(context).colorScheme.secondary,
+        ),
       ),
     );
   }

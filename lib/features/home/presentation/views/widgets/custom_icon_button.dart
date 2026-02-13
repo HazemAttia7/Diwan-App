@@ -4,12 +4,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class CustomIconButton extends StatelessWidget {
   final IconData icon;
   final double size;
+  final Color? iconColor;
   final VoidCallback onTap;
   const CustomIconButton({
     super.key,
     required this.icon,
     required this.size,
     required this.onTap,
+    this.iconColor,
   });
 
   @override
@@ -18,8 +20,11 @@ class CustomIconButton extends StatelessWidget {
       borderRadius: BorderRadius.circular(10.r),
       onTap: onTap,
       child: ConstrainedBox(
-        constraints: BoxConstraints.tightFor(width: 26.sp, height: 26.sp),
-        child: Icon(icon, size: size),
+        constraints: BoxConstraints.tightFor(
+          width: size + 2.sp,
+          height: size + 2.sp,
+        ),
+        child: Icon(icon, size: size, color: iconColor),
       ),
     );
   }
