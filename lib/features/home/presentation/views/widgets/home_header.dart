@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:poem_app/core/utils/app_styles.dart';
 
 class HomeHeader extends StatelessWidget {
@@ -9,14 +10,14 @@ class HomeHeader extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        const Icon(Icons.menu_rounded),
+        Icon(Icons.menu_rounded, size: 24.sp),
         Column(
           children: [
             Text("ديوان المتنبي", style: context.textStyle20),
             Text("الصفحة الرئيسية", style: context.textStyle10),
           ],
         ),
-        const Icon(Icons.settings_outlined),
+        Icon(Icons.settings_outlined, size: 24.sp),
       ],
     );
   }
