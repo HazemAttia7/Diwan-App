@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:poem_app/core/theme/theme.dart';
-import 'package:poem_app/core/theme/theme_controller.dart';
+import 'package:poem_app/core/controllers/theme/theme.dart';
+import 'package:poem_app/core/controllers/theme/theme_controller.dart';
 import 'package:poem_app/core/utils/app_router.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

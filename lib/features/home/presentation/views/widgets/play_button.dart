@@ -1,19 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:poem_app/core/reader/reader_controller.dart';
+import 'package:poem_app/core/controllers/reader/reader_controller.dart';
 import 'package:poem_app/features/home/data/models/verse_model.dart';
 import 'package:provider/provider.dart';
 
-class PlayButton extends StatefulWidget {
+class PlayButton extends StatelessWidget {
   final List<Verse> verses;
   const PlayButton({super.key, required this.verses});
 
-  @override
-  State<PlayButton> createState() => _PlayButtonState();
-}
-
-class _PlayButtonState extends State<PlayButton> {
-  bool isPlayed = false;
   @override
   Widget build(BuildContext context) {
     final readerController = context.read<ReaderController>();
@@ -28,7 +22,7 @@ class _PlayButtonState extends State<PlayButton> {
       child: InkWell(
         borderRadius: BorderRadius.circular(9999.r),
         child: Icon(
-          isPlayed ? Icons.pause : Icons.play_arrow_outlined,
+          readerController.isPlaying ? Icons.pause : Icons.play_arrow_outlined,
           color: Colors.white,
           size: 24.sp,
         ),
@@ -36,11 +30,8 @@ class _PlayButtonState extends State<PlayButton> {
           if (readerController.isPlaying) {
             readerController.pause();
           } else {
-            readerController.play(verses: widget.verses);
+            readerController.play(verses: verses);
           }
-          setState(() {
-            isPlayed = !isPlayed;
-          });
         },
       ),
     );

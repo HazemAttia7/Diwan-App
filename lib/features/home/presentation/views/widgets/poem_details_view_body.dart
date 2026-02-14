@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:poem_app/core/reader/reader_controller.dart';
+import 'package:poem_app/core/controllers/reader/reader_controller.dart';
 import 'package:poem_app/features/home/data/models/verse_model.dart';
 import 'package:poem_app/features/home/presentation/views/widgets/custom_frame.dart';
 import 'package:poem_app/features/home/presentation/views/widgets/poem_action_bar.dart';

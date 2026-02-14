@@ -25,6 +25,7 @@ class ReaderController extends ChangeNotifier {
 
       if (_isDisposed) return;
     }
+    if (!_shouldStop) _currentVerseIndex = -1;
     _stopInternal();
   }
 

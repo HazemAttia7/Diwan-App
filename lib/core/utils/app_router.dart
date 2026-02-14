@@ -1,5 +1,6 @@
 import 'package:go_router/go_router.dart';
-import 'package:poem_app/core/reader/reader_controller.dart';
+import 'package:poem_app/core/controllers/font%20size/font_size_controller.dart';
+import 'package:poem_app/core/controllers/reader/reader_controller.dart';
 import 'package:poem_app/features/home/data/models/verse_model.dart';
 import 'package:poem_app/features/home/presentation/views/home_view.dart';
 import 'package:poem_app/features/home/presentation/views/poem_details_view.dart';
@@ -17,8 +18,11 @@ abstract class AppRouter {
         path: kPoemDetails,
         builder: (context, state) {
           final args = state.extra as Map<String, dynamic>;
-          return ChangeNotifierProvider(
-            create: (_) => ReaderController(),
+          return MultiProvider(
+            providers: [
+              ChangeNotifierProvider(create: (context) => ReaderController()),
+              ChangeNotifierProvider(create: (context) => FontSizeController()),
+            ],
             child: PoemDetailsView(
               poemTitle: args["poemTitle"],
               verses: args["verses"] as List<Verse>,
