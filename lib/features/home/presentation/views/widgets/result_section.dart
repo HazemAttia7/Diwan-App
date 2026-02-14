@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
+import 'package:poem_app/core/utils/app_router.dart';
+import 'package:poem_app/features/home/data/models/verse_model.dart';
 import 'package:poem_app/features/home/presentation/views/widgets/poem_card.dart';
 
 class ResultSection extends StatelessWidget {
@@ -17,7 +20,20 @@ class ResultSection extends StatelessWidget {
             number: index + 1,
             title: 'قصيدة',
             subtitle: 'النوع: مدح',
-            onTap : (){},
+            onTap: () {
+              GoRouter.of(context).push(
+                AppRouter.kPoemDetails,
+                extra: {
+                  'poemTitle': "قصيدة",
+                  "verses": [
+                    Verse(
+                      firstHemistich: "firstHemistich",
+                      secondHemistich: "secondHemistich",
+                    ),
+                  ],
+                },
+              );
+            },
           ),
         );
       },
