@@ -20,16 +20,7 @@ class PoemCard extends StatelessWidget {
     return Ink(
       width: double.infinity,
       decoration: BoxDecoration(
-        color: Theme.of(context).colorScheme.surfaceContainer,
         borderRadius: BorderRadius.circular(24.r),
-        boxShadow: [
-          BoxShadow(
-            color: Theme.of(context).colorScheme.shadow.withValues(alpha: 0.07),
-            blurRadius: 20.sp,
-            spreadRadius: -2.sp,
-            offset: const Offset(0, 4),
-          ),
-        ],
       ),
       child: InkWell(
         borderRadius: BorderRadius.circular(24.r),

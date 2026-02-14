@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:poem_app/core/helper/constants.dart';
+import 'package:poem_app/core/widgets/staggered_animated_opacity_translation.dart';
 import 'package:poem_app/features/home/presentation/views/widgets/custom_search_field.dart';
 import 'package:poem_app/features/home/presentation/views/widgets/home_header.dart';
 import 'package:poem_app/features/home/presentation/views/widgets/result_section.dart';
@@ -21,9 +23,20 @@ class HomeViewBody extends StatelessWidget {
               child: Column(
                 children: [
                   Gap(MediaQuery.sizeOf(context).height * 0.022),
-                  const HomeHeader(),
+                  StaggeredAnimatedOpacityTranslation(
+                    widget: const HomeHeader(),
+                    opacityDuration: const Duration(seconds: 1),
+                    transformDuration: const Duration(milliseconds: 800),
+                    xOffset: 50.w,
+                  ),
                   Gap(MediaQuery.sizeOf(context).height * 0.027),
-                  const CustomSearchField(),
+                  StaggeredAnimatedOpacityTranslation(
+                    delay: const Duration(milliseconds: 700),
+                    widget: const CustomSearchField(),
+                    opacityDuration: const Duration(seconds: 1),
+                    transformDuration: const Duration(milliseconds: 800),
+                    xOffset: -50.w,
+                  ),
                   Gap(MediaQuery.sizeOf(context).height * 0.036),
                 ],
               ),

@@ -23,7 +23,7 @@ class CustomNumberedListTile extends StatelessWidget {
         Container(
           padding: EdgeInsets.symmetric(horizontal: 20.sp, vertical: 8.sp),
           decoration: BoxDecoration(
-            color: Theme.of(context).colorScheme.surface,
+            color: Theme.of(context).colorScheme.surfaceContainer,
             borderRadius: BorderRadius.circular(16.r),
           ),
           child: Text(number.toString(), style: context.textStyle18),

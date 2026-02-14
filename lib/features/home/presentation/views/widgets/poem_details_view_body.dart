@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:poem_app/core/controllers/reader/reader_controller.dart';
+import 'package:poem_app/core/widgets/staggered_animated_slide.dart';
 import 'package:poem_app/features/home/data/models/verse_model.dart';
 import 'package:poem_app/features/home/presentation/views/widgets/custom_frame.dart';
 import 'package:poem_app/features/home/presentation/views/widgets/poem_action_bar.dart';
@@ -37,9 +38,15 @@ class PoemDetailsViewBody extends StatelessWidget {
                     padding: EdgeInsets.only(
                       bottom: MediaQuery.sizeOf(context).height * 0.04,
                     ),
-                    child: VerseWidget(
-                      verse: verses[index],
-                      isBeingRead: readerController.currentVerseIndex == index,
+                    child: StaggeredAnimatedSlide(
+                      delay: Duration(milliseconds: index * 100),
+                      transfromDuration: const Duration(milliseconds: 800),
+                      opacityDuration: const Duration(milliseconds: 600),
+                      child: VerseWidget(
+                        verse: verses[index],
+                        isBeingRead:
+                            readerController.currentVerseIndex == index,
+                      ),
                     ),
                   ),
                 ),
