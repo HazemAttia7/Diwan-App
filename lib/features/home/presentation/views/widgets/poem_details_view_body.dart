@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:poem_app/core/reader/reader_controller.dart';
 import 'package:poem_app/features/home/data/models/verse_model.dart';
 import 'package:poem_app/features/home/presentation/views/widgets/custom_frame.dart';
 import 'package:poem_app/features/home/presentation/views/widgets/poem_action_bar.dart';
 import 'package:poem_app/features/home/presentation/views/widgets/poem_details_header.dart';
+import 'package:poem_app/features/home/presentation/views/widgets/verse_widget.dart';
+import 'package:provider/provider.dart';
 
 class PoemDetailsViewBody extends StatelessWidget {
   final String poemTitle;
@@ -16,17 +19,35 @@ class PoemDetailsViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: CustomFrame(
-        child: Column(
-          children: [
-            Gap(MediaQuery.sizeOf(context).height * 0.02),
-            PoemDetailsHeader(poemTitle: poemTitle),
-            Gap(MediaQuery.sizeOf(context).height * 0.058),
-            const PoemActionBar(),
-          ],
-        ),
-      ),
+    return Consumer<ReaderController>(
+      builder: (context, readerController, _) {
+        return SafeArea(
+          child: CustomFrame(
+            child: ListView(
+              physics: const BouncingScrollPhysics(),
+              children: [
+                Gap(MediaQuery.sizeOf(context).height * 0.02),
+                PoemDetailsHeader(poemTitle: poemTitle),
+                Gap(MediaQuery.sizeOf(context).height * 0.036),
+                PoemActionBar(verses: verses),
+                Gap(MediaQuery.sizeOf(context).height * 0.046),
+                ...List.generate(
+                  verses.length,
+                  (index) => Padding(
+                    padding: EdgeInsets.only(
+                      bottom: MediaQuery.sizeOf(context).height * 0.04,
+                    ),
+                    child: VerseWidget(
+                      verse: verses[index],
+                      isBeingRead: readerController.currentVerseIndex == index,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
     );
   }
 }

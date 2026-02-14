@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:poem_app/features/home/data/models/verse_model.dart';
 import 'package:poem_app/features/home/presentation/views/widgets/play_button.dart';
-import 'package:poem_app/features/home/presentation/views/widgets/save_share_actions.dart';
+import 'package:poem_app/features/home/presentation/views/widgets/secondary_actions.dart';
 import 'package:poem_app/features/home/presentation/views/widgets/text_size_controls.dart';
 
 class PoemActionBar extends StatelessWidget {
-  const PoemActionBar({super.key});
+  final List<Verse> verses;
+  const PoemActionBar({super.key, required this.verses});
 
   @override
   Widget build(BuildContext context) {
@@ -30,8 +32,8 @@ class PoemActionBar extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             SizedBox(width: 80.sp, child: const TextSizeControls()),
-            const PlayButton(),
-            SizedBox(width: 80.sp, child: const SaveShareActions()),
+            PlayButton(verses: verses),
+            SizedBox(width: 80.sp, child: const SecondaryActions()),
           ],
         ),
       ),
