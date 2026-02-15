@@ -13,7 +13,12 @@ class HomeHeader extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        CustomIconButton(icon: Icons.menu_rounded, size: 24.sp, onTap: () {}),
+        CustomIconButton(
+          icon: Icons.menu_rounded,
+          size: 24.sp,
+          onTap: () {},
+          iconColor: Theme.of(context).textTheme.bodyLarge!.color,
+        ),
         Column(
           children: [
             Text("ديوان", style: context.textStyle20),
@@ -30,6 +35,7 @@ class HomeHeader extends StatelessWidget {
               ? Icons.dark_mode_outlined
               : Icons.light_mode_outlined,
           size: 24.sp,
+          iconColor: Theme.of(context).textTheme.bodyLarge!.color,
           onTap: () {
             Provider.of<ThemeController>(
               context,

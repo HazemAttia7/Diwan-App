@@ -19,6 +19,8 @@ class PoemDetailsHeader extends StatelessWidget {
           child: CustomIconButton(
             icon: Icons.arrow_back,
             size: 24.sp,
+            iconColor: Theme.of(context).textTheme.bodyLarge!.color,
+
             onTap: () => Navigator.pop(context),
           ),
         ),
@@ -28,6 +30,7 @@ class PoemDetailsHeader extends StatelessWidget {
           child: CustomIconButton(
             icon: Icons.more_vert,
             size: 24.sp,
+            iconColor: Theme.of(context).textTheme.bodyLarge!.color,
             onTap: () {},
           ),
         ),

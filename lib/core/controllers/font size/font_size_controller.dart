@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class FontSizeController extends ChangeNotifier {
-  double _fontSizeMultiplier = 1.0;
+  double _fontSizeMultiplier = 0.8;
 
   static const double _minMultiplier = 0.8;
   static const double _maxMultiplier = 1.5;

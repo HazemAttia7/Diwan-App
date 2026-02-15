@@ -15,15 +15,15 @@ class PlayButton extends StatelessWidget {
     return Ink(
       width: 50.sp,
       height: 50.sp,
-      decoration: const BoxDecoration(
-        color: Color(0xffC19A6B),
+      decoration: BoxDecoration(
+        color: Theme.of(context).colorScheme.tertiary,
         shape: BoxShape.circle,
       ),
       child: InkWell(
         borderRadius: BorderRadius.circular(9999.r),
         child: Icon(
           readerController.isPlaying ? Icons.pause : Icons.play_arrow_outlined,
-          color: Colors.white,
+          color: Theme.of(context).colorScheme.surfaceContainer,
           size: 24.sp,
         ),
         onTap: () {

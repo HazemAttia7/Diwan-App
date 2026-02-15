@@ -4,12 +4,12 @@ import 'package:poem_app/features/home/presentation/views/widgets/custom_icon_bu
 class CustomSaveButton extends StatefulWidget {
   final double size;
   final VoidCallback onTap;
-  final Color iconColor;
+  final Color? iconColor;
   const CustomSaveButton({
     super.key,
     required this.size,
     required this.onTap,
-    required this.iconColor,
+    this.iconColor,
   });
 
   @override

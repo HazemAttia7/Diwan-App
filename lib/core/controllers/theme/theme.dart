@@ -12,7 +12,7 @@ ThemeData lightTheme = ThemeData.light().copyWith(
   colorScheme: const ColorScheme.light(
     primary: Color(0xFFC5A059),
     secondary: Color(0xFF94A3B8),
-    tertiary: Color(0xFFC5A059),
+    tertiary: Color(0xFFA9A68F),
     surface: Color(0xFFFBFBFA),
     surfaceContainer: Colors.white,
     surfaceContainerHigh: Color(0xFF94A3B8),
@@ -24,23 +24,24 @@ ThemeData lightTheme = ThemeData.light().copyWith(
 );
 
 ThemeData darkTheme = ThemeData.dark().copyWith(
-  scaffoldBackgroundColor: const Color(0xff14130B),
+  scaffoldBackgroundColor: const Color(0xFF0E1A2B),
   brightness: Brightness.dark,
   textTheme: GoogleFonts.tajawalTextTheme().apply(
-    bodyColor: const Color(0xffFFFCDA),
-    displayColor: const Color(0xffFFFCDA),
+    bodyColor: const Color(0xFFF4EBDD),
+    displayColor: const Color(0xFFC9A227),
   ),
-  secondaryHeaderColor: const Color(0xffFFFCDA),
+  secondaryHeaderColor: const Color(0xFFC9A227),
   colorScheme: const ColorScheme.dark(
-    primary: Color(0xffB7A477),
-    secondary: Color(0xff938C72),
-    tertiary: Color(0xFFFFFCDA),
-    surface: Color(0xff14130B),
-    surfaceContainer: Color(0xff272411),
-    surfaceContainerHigh: Color(0xffF1F5F9),
-    surfaceContainerHighest: Color(0xFF37321F),
-    outline: Color(0xff272411),
-    outlineVariant: Color(0xff4C493F),
-    shadow: Colors.white,
+    primary: Color(0xFFF4EBDD),
+    secondary: Color(0xFF579498),
+    tertiary: Color(0xFFF4EBDD),
+    surface: Color(0xFF0E1A2B),
+    surfaceContainer: Color(0xFF1F3A5F),
+    surfaceContainerHigh: Color(0xFF15263E),
+    surfaceContainerHighest: Color(0xFF1C2E4A),
+    outline: Color(0xFFB68B2C),
+    outlineVariant: Color(0xFF2C6E73),
+    shadow: Color(0xFFF4EBDD),
+    onTertiary: Color(0xFF7A1E2C),
   ),
 );

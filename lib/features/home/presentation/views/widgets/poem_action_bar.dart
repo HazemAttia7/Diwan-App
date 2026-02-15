@@ -35,7 +35,7 @@ class PoemActionBar extends StatelessWidget {
           children: [
             CustomSaveButton(
               size: 26.sp,
-              iconColor: Theme.of(context).secondaryHeaderColor,
+              iconColor: Theme.of(context).textTheme.bodyLarge!.color,
               onTap: () {},
             ),
             PlayButton(verses: verses),
@@ -44,13 +44,13 @@ class PoemActionBar extends StatelessWidget {
                   ? Icons.stop
                   : Icons.share_outlined,
               size: 26.sp,
-              iconColor: Theme.of(context).secondaryHeaderColor,
               onTap: () {
                 if (context.read<ReaderController>().isPlaying) {
                   context.read<ReaderController>().stop();
                   return;
                 }
               },
+              iconColor: Theme.of(context).textTheme.bodyLarge!.color,
             ),
           ],
         ),

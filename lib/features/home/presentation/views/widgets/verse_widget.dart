@@ -25,12 +25,12 @@ class VerseWidget extends StatelessWidget {
                       border: Border(
                         right: BorderSide(
                           width: 4.sp,
-                          color: Theme.of(context).colorScheme.primary,
+                          color: Theme.of(context).colorScheme.tertiary,
                         ),
                       ),
                       color: Theme.of(
                         context,
-                      ).colorScheme.primary.withValues(alpha: 0.08),
+                      ).colorScheme.tertiary.withValues(alpha: 0.08),
                     )
                   : null,
               child: Column(
@@ -40,7 +40,7 @@ class VerseWidget extends StatelessWidget {
                     verse.firstHemistich,
                     textAlign: TextAlign.start,
                     style: context.textStyle16.copyWith(
-                      fontFamily: GoogleFonts.notoNaskhArabic().fontFamily,
+                      fontFamily: GoogleFonts.amiri().fontFamily,
                       fontSize:
                           (context.textStyle16.fontSize ?? 16.sp) *
                           fontSizeController.fontSizeMultiplier,
@@ -52,7 +52,7 @@ class VerseWidget extends StatelessWidget {
                       verse.secondHemistich,
                       textAlign: TextAlign.end,
                       style: context.textStyle16.copyWith(
-                        fontFamily: GoogleFonts.notoNaskhArabic().fontFamily,
+                        fontFamily: GoogleFonts.amiri().fontFamily,
                         fontSize:
                             (context.textStyle16.fontSize ?? 16.sp) *
                             fontSizeController.fontSizeMultiplier,
@@ -68,7 +68,7 @@ class VerseWidget extends StatelessWidget {
                 top: 4.sp,
                 child: Icon(
                   Icons.record_voice_over,
-                  color: Theme.of(context).colorScheme.primary,
+                  color: Theme.of(context).colorScheme.tertiary,
                   size: 24.sp,
                 ),
               ),
