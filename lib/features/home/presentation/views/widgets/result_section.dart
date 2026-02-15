@@ -24,7 +24,7 @@ class ResultSection extends StatelessWidget {
             child: PoemCard(
               number: index + 1,
               title: 'قصيدة',
-              subtitle: 'النوع: مدح',
+              subtitle: 'عدد الأبيات : ٣٠',
               onTap: () {
                 GoRouter.of(context).push(
                   AppRouter.kPoemDetails,

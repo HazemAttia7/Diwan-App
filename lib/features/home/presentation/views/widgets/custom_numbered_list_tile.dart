@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:poem_app/core/utils/app_styles.dart';
 
-// TODO : refactor
 class CustomNumberedListTile extends StatelessWidget {
   final String title, subtitle;
   final int number;

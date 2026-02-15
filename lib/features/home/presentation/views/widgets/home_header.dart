@@ -16,7 +16,7 @@ class HomeHeader extends StatelessWidget {
         CustomIconButton(icon: Icons.menu_rounded, size: 24.sp, onTap: () {}),
         Column(
           children: [
-            Text("ديوان المتنبي", style: context.textStyle20),
+            Text("ديوان", style: context.textStyle20),
             Text(
               "الصفحة الرئيسية",
               style: context.textStyle11.copyWith(
@@ -31,7 +31,10 @@ class HomeHeader extends StatelessWidget {
               : Icons.light_mode_outlined,
           size: 24.sp,
           onTap: () {
-            Provider.of<ThemeController>(context, listen: false).changeThemeMode();
+            Provider.of<ThemeController>(
+              context,
+              listen: false,
+            ).changeThemeMode();
           },
         ),
       ],

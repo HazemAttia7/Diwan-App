@@ -18,12 +18,13 @@ class SplashViewBody extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(
-            "ديوان المتنبي",
+            "ديوان",
             style: TextStyle(
               fontSize: 47.h + 1.w,
               fontWeight: FontWeight.bold,
               fontFamily: GoogleFonts.notoNastaliqUrdu().fontFamily,
               color: primaryColor,
+              letterSpacing: 2.sp
             ),
           ),
           Gap(MediaQuery.sizeOf(context).height * 0.05 + 1.w),

@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:poem_app/core/controllers/reader/reader_controller.dart';
 import 'package:poem_app/features/home/data/models/verse_model.dart';
+import 'package:poem_app/features/home/presentation/views/widgets/custom_icon_button.dart';
+import 'package:poem_app/features/home/presentation/views/widgets/custom_save_button.dart';
 import 'package:poem_app/features/home/presentation/views/widgets/play_button.dart';
-import 'package:poem_app/features/home/presentation/views/widgets/secondary_actions.dart';
-import 'package:poem_app/features/home/presentation/views/widgets/text_size_controls.dart';
+import 'package:provider/provider.dart';
 
 class PoemActionBar extends StatelessWidget {
   final List<Verse> verses;
@@ -29,11 +31,27 @@ class PoemActionBar extends StatelessWidget {
           ],
         ),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            SizedBox(width: 80.sp, child: const TextSizeControls()),
+            CustomSaveButton(
+              size: 26.sp,
+              iconColor: Theme.of(context).secondaryHeaderColor,
+              onTap: () {},
+            ),
             PlayButton(verses: verses),
-            SizedBox(width: 80.sp, child: const SecondaryActions()),
+            CustomIconButton(
+              icon: context.watch<ReaderController>().isPlaying
+                  ? Icons.stop
+                  : Icons.share_outlined,
+              size: 26.sp,
+              iconColor: Theme.of(context).secondaryHeaderColor,
+              onTap: () {
+                if (context.read<ReaderController>().isPlaying) {
+                  context.read<ReaderController>().stop();
+                  return;
+                }
+              },
+            ),
           ],
         ),
       ),
