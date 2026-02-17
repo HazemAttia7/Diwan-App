@@ -27,7 +27,7 @@ class HomeHeader extends StatelessWidget {
             Text(
               "الصفحة الرئيسية",
               style: context.textStyle11.copyWith(
-                color: Theme.of(context).colorScheme.primary,
+                color: Theme.of(context).colorScheme.secondary,
               ),
             ),
           ],

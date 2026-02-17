@@ -15,12 +15,12 @@ class FontSizeSlider extends StatelessWidget {
       data: SliderTheme.of(context).copyWith(
         inactiveTrackColor: Theme.of(
           context,
-        ).colorScheme.tertiary.withValues(alpha: 0.3),
+        ).colorScheme.primary.withValues(alpha: 0.3),
         overlayColor: Theme.of(
           context,
-        ).colorScheme.tertiary.withValues(alpha: 0.2),
+        ).colorScheme.primary.withValues(alpha: 0.2),
         trackHeight: 2.sp,
-        thumbColor: Theme.of(context).colorScheme.tertiary,
+        thumbColor: Theme.of(context).colorScheme.primary,
         thumbShape: RoundSliderThumbShape(enabledThumbRadius: 8.sp),
         overlayShape: RoundSliderOverlayShape(overlayRadius: 16.sp),
       ),

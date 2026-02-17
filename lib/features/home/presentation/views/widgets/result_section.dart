@@ -12,11 +12,12 @@ class ResultSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
+      clipBehavior: Clip.none,
       physics: const NeverScrollableScrollPhysics(),
       itemCount: 8,
       itemBuilder: (BuildContext context, int index) {
         return Padding(
-          padding: EdgeInsets.only(bottom: 18.h),
+          padding: EdgeInsets.only(bottom: 20.h),
           child: StaggeredAnimatedSlide(
             delay: Duration(milliseconds: index * 150),
             transfromDuration: const Duration(milliseconds: 800),

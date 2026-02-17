@@ -22,7 +22,7 @@ class CustomNumberedListTile extends StatelessWidget {
         Container(
           padding: EdgeInsets.symmetric(horizontal: 20.sp, vertical: 8.sp),
           decoration: BoxDecoration(
-            color: Theme.of(context).colorScheme.surfaceContainer,
+            color: Theme.of(context).colorScheme.surfaceContainerHigh,
             borderRadius: BorderRadius.circular(16.r),
           ),
           child: Text(number.toString(), style: context.textStyle18),
@@ -44,12 +44,18 @@ class CustomNumberedListTile extends StatelessWidget {
                   Icon(
                     icon,
                     size: 14.sp,
-                    color: Theme.of(context).colorScheme.secondary,
+                    color: Theme.of(
+                      context,
+                    ).colorScheme.secondary.withValues(alpha: 0.85),
                   ),
                   Gap(MediaQuery.sizeOf(context).width * 0.02),
                   Text(
                     subtitle,
-                    style: context.textStyle12,
+                    style: context.textStyle12.copyWith(
+                      color: Theme.of(
+                        context,
+                      ).colorScheme.secondary.withValues(alpha: 0.8),
+                    ),
                     overflow: TextOverflow.ellipsis,
                     maxLines: 1,
                   ),

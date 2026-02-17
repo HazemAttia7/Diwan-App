@@ -5,8 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 class SplashViewBody extends StatelessWidget {
-  final Color primaryColor;
-  const SplashViewBody({super.key, required this.primaryColor});
+  const SplashViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,13 +22,13 @@ class SplashViewBody extends StatelessWidget {
               fontSize: 47.h + 1.w,
               fontWeight: FontWeight.bold,
               fontFamily: GoogleFonts.notoNastaliqUrdu().fontFamily,
-              color: primaryColor,
-              letterSpacing: 2.sp
+              color: Theme.of(context).colorScheme.primary,
+              letterSpacing: 2.sp,
             ),
           ),
           Gap(MediaQuery.sizeOf(context).height * 0.05 + 1.w),
           LoadingAnimationWidget.waveDots(
-            color: primaryColor,
+            color: Theme.of(context).colorScheme.primary,
             size: 40.h + 1.w,
           ),
         ],

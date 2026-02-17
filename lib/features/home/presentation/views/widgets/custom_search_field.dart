@@ -10,15 +10,15 @@ class CustomSearchField extends StatelessWidget {
     return TextField(
       decoration: InputDecoration(
         contentPadding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
-        fillColor: Theme.of(context).colorScheme.surfaceContainerHighest,
+        fillColor: Theme.of(context).colorScheme.surfaceContainerHigh,
         filled: true,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(16.r),
           borderSide: BorderSide.none,
         ),
         prefixIcon: Padding(
-          padding: EdgeInsetsDirectional.only(start: 16.w),
-          child: Icon(Icons.search, size: 24.sp),
+          padding: EdgeInsetsDirectional.only(start: 16.w, end: 5.w),
+          child: Icon(Icons.search, size: 22.sp),
         ),
         prefixIconConstraints: BoxConstraints(
           minWidth: 40.sp,
@@ -28,7 +28,7 @@ class CustomSearchField extends StatelessWidget {
         hintText: "ابحث عن قصيدة أو كلمة...",
         hintStyle: context.textStyle14.copyWith(
           fontWeight: FontWeight.normal,
-          color: Theme.of(context).colorScheme.secondary,
+          color: Theme.of(context).colorScheme.secondary.withValues(alpha: 0.6),
         ),
       ),
     );

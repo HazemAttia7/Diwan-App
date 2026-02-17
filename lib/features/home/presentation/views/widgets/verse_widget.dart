@@ -33,12 +33,12 @@ class VerseWidget extends StatelessWidget {
                       border: Border(
                         right: BorderSide(
                           width: 4.sp,
-                          color: Theme.of(context).colorScheme.tertiary,
+                          color: Theme.of(context).colorScheme.secondary,
                         ),
                       ),
                       color: Theme.of(
                         context,
-                      ).colorScheme.tertiary.withValues(alpha: 0.08),
+                      ).colorScheme.secondary.withValues(alpha: 0.08),
                     )
                   : null,
               child: Column(
@@ -49,7 +49,7 @@ class VerseWidget extends StatelessWidget {
                       Text(
                         convertToArabicNumber(verseNumber).toString(),
                         style: context.textStyle16.copyWith(
-                          color: Theme.of(context).colorScheme.tertiary,
+                          color: Theme.of(context).colorScheme.secondary,
                           fontSize:
                               (context.textStyle16.fontSize ?? 16.sp) *
                               fontSizeController.fontSizeMultiplier,
@@ -91,7 +91,7 @@ class VerseWidget extends StatelessWidget {
                 top: 4.sp,
                 child: Icon(
                   Icons.record_voice_over,
-                  color: Theme.of(context).colorScheme.tertiary,
+                  color: Theme.of(context).colorScheme.secondary,
                   size: 24.sp,
                 ),
               ),

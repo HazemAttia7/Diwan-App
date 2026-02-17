@@ -13,6 +13,7 @@ class PoemActionBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final readerController = context.watch<ReaderController>();
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 32.sp),
       child: Ink(
@@ -42,7 +43,7 @@ class PoemActionBar extends StatelessWidget {
             ),
             PlayButton(verses: verses),
             CustomIconButton(
-              icon: context.watch<ReaderController>().isPlaying
+              icon: readerController.isPlaying
                   ? Icons.stop
                   : Icons.share_outlined,
               size: 26.sp,
@@ -53,7 +54,9 @@ class PoemActionBar extends StatelessWidget {
                 }
                 // TODO : Share the poem
               },
-              iconColor: Theme.of(context).textTheme.bodyLarge!.color,
+              iconColor: readerController.isPlaying
+                  ? Theme.of(context).colorScheme.secondary
+                  : Theme.of(context).textTheme.bodyLarge!.color,
             ),
           ],
         ),

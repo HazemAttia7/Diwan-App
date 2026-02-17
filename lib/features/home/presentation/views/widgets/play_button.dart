@@ -12,27 +12,29 @@ class PlayButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final readerController = context.read<ReaderController>();
 
-    return Ink(
+    return SizedBox(
       width: 50.sp,
       height: 50.sp,
-      decoration: BoxDecoration(
-        color: Theme.of(context).colorScheme.tertiary,
-        shape: BoxShape.circle,
-      ),
-      child: InkWell(
+      child: Material(
+        color: Theme.of(context).colorScheme.primary,
         borderRadius: BorderRadius.circular(9999.r),
-        child: Icon(
-          readerController.isPlaying ? Icons.pause : Icons.play_arrow_outlined,
-          color: Theme.of(context).colorScheme.surfaceContainer,
-          size: 24.sp,
+        child: InkWell(
+          borderRadius: BorderRadius.circular(9999.r),
+          child: Icon(
+            readerController.isPlaying
+                ? Icons.pause
+                : Icons.play_arrow_outlined,
+            color: Theme.of(context).colorScheme.surfaceContainer,
+            size: 24.sp,
+          ),
+          onTap: () {
+            if (readerController.isPlaying) {
+              readerController.pause();
+            } else {
+              readerController.play(verses: verses);
+            }
+          },
         ),
-        onTap: () {
-          if (readerController.isPlaying) {
-            readerController.pause();
-          } else {
-            readerController.play(verses: verses);
-          }
-        },
       ),
     );
   }

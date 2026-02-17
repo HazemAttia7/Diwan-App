@@ -27,7 +27,7 @@ class PoemDetailsViewBody extends StatelessWidget {
           Expanded(
             child: Container(
               padding: EdgeInsets.only(
-                top: 35.sp,
+                top: 40.sp,
                 bottom: 45.sp,
                 left: 45.sp,
                 right: 45.sp,

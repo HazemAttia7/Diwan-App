@@ -22,12 +22,9 @@ class _SplashViewState extends State<SplashView> {
   @override
 
   Widget build(BuildContext context) {
-    final isDark = Theme.of(context).brightness == Brightness.dark;
-    return Scaffold(
+    return const Scaffold(
       body: SplashViewBody(
-        primaryColor: isDark
-            ? const Color(0xffFFFCDA)
-            : const Color(0xff917129),
+      
       ),
     );
   }
