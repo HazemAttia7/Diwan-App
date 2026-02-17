@@ -16,7 +16,9 @@ class HomeHeader extends StatelessWidget {
         CustomIconButton(
           icon: Icons.menu_rounded,
           size: 24.sp,
-          onTap: () {},
+          onTap: () {
+            // TODO : Show Side Menu (Favourites , about us , contact us)
+          },
           iconColor: Theme.of(context).textTheme.bodyLarge!.color,
         ),
         Column(

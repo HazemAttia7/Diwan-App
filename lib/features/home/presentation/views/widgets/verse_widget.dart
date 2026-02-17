@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:poem_app/core/controllers/font%20size/font_size_controller.dart';
+import 'package:poem_app/core/helper/convet_to_arabic_number.dart';
 import 'package:poem_app/core/utils/app_styles.dart';
 import 'package:poem_app/features/home/data/models/verse_model.dart';
 import 'package:provider/provider.dart';
@@ -9,7 +11,13 @@ import 'package:provider/provider.dart';
 class VerseWidget extends StatelessWidget {
   final Verse verse;
   final bool isBeingRead;
-  const VerseWidget({super.key, required this.verse, this.isBeingRead = false});
+  final int verseNumber;
+  const VerseWidget({
+    super.key,
+    required this.verse,
+    this.isBeingRead = false,
+    required this.verseNumber,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -36,16 +44,31 @@ class VerseWidget extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    verse.firstHemistich,
-                    textAlign: TextAlign.start,
-                    style: context.textStyle16.copyWith(
-                      fontFamily: GoogleFonts.amiri().fontFamily,
-                      fontSize:
-                          (context.textStyle16.fontSize ?? 16.sp) *
-                          fontSizeController.fontSizeMultiplier,
-                    ),
+                  Row(
+                    children: [
+                      Text(
+                        convertToArabicNumber(verseNumber).toString(),
+                        style: context.textStyle16.copyWith(
+                          color: Theme.of(context).colorScheme.tertiary,
+                          fontSize:
+                              (context.textStyle16.fontSize ?? 16.sp) *
+                              fontSizeController.fontSizeMultiplier,
+                        ),
+                      ),
+                      Gap(MediaQuery.sizeOf(context).height * 0.01),
+                      Text(
+                        verse.firstHemistich,
+                        textAlign: TextAlign.start,
+                        style: context.textStyle16.copyWith(
+                          fontFamily: GoogleFonts.amiri().fontFamily,
+                          fontSize:
+                              (context.textStyle16.fontSize ?? 16.sp) *
+                              fontSizeController.fontSizeMultiplier,
+                        ),
+                      ),
+                    ],
                   ),
+                  Gap(MediaQuery.sizeOf(context).height * 0.01),
                   Align(
                     alignment: AlignmentDirectional.centerEnd,
                     child: Text(

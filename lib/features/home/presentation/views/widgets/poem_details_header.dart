@@ -20,7 +20,6 @@ class PoemDetailsHeader extends StatelessWidget {
             icon: Icons.arrow_back,
             size: 24.sp,
             iconColor: Theme.of(context).textTheme.bodyLarge!.color,
-
             onTap: () => Navigator.pop(context),
           ),
         ),
@@ -28,10 +27,12 @@ class PoemDetailsHeader extends StatelessWidget {
           top: 0,
           left: 0,
           child: CustomIconButton(
-            icon: Icons.more_vert,
+            icon: Icons.info_outline,
             size: 24.sp,
             iconColor: Theme.of(context).textTheme.bodyLarge!.color,
-            onTap: () {},
+            onTap: () {
+              // TODO : Info about the poem and author
+            },
           ),
         ),
       ],

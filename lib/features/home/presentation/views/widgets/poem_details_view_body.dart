@@ -25,58 +25,53 @@ class PoemDetailsViewBody extends StatelessWidget {
       child: Column(
         children: [
           Expanded(
-            child: Stack(
-              children: [
-                ListView(
-                  padding: EdgeInsets.only(
-                    bottom: 36.sp,
-                    left: 36.sp,
-                    right: 36.sp,
-                    top: 12.sp,
-                  ),
-                  physics: const BouncingScrollPhysics(),
-                  children: [
-                    Gap(MediaQuery.sizeOf(context).height * 0.02),
-                    PoemDetailsHeader(poemTitle: poemTitle),
-                    Gap(MediaQuery.sizeOf(context).height * 0.036),
-                    PoemActionBar(verses: verses),
-                    Gap(MediaQuery.sizeOf(context).height * 0.046),
-                    ...List.generate(
-                      verses.length,
-                      (index) => Padding(
-                        padding: EdgeInsets.only(
-                          bottom: MediaQuery.sizeOf(context).height * 0.04,
-                        ),
-                        child: StaggeredAnimatedSlide(
-                          delay: Duration(milliseconds: index * 100),
-                          transfromDuration: const Duration(milliseconds: 800),
-                          opacityDuration: const Duration(milliseconds: 600),
-                          child: Consumer<ReaderController>(
-                            builder: (context, readerController, _) {
-                              return VerseWidget(
-                                verse: verses[index],
-                                isBeingRead:
-                                    readerController.currentVerseIndex == index,
-                              );
-                            },
-                          ),
+            child: Container(
+              padding: EdgeInsets.only(
+                top: 35.sp,
+                bottom: 45.sp,
+                left: 45.sp,
+                right: 45.sp,
+              ),
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage("assets/images/vectorized poem frame.png"),
+                  fit: BoxFit.fill,
+                ),
+              ),
+              child: ListView(
+                padding: EdgeInsets.all(5.sp),
+                physics: const BouncingScrollPhysics(),
+                children: [
+                  Gap(MediaQuery.sizeOf(context).height * 0.02),
+                  PoemDetailsHeader(poemTitle: poemTitle),
+                  Gap(MediaQuery.sizeOf(context).height * 0.036),
+                  PoemActionBar(verses: verses),
+                  Gap(MediaQuery.sizeOf(context).height * 0.023),
+                  ...List.generate(
+                    verses.length,
+                    (index) => Padding(
+                      padding: EdgeInsets.only(
+                        bottom: MediaQuery.sizeOf(context).height * 0.043,
+                      ),
+                      child: StaggeredAnimatedSlide(
+                        delay: Duration(milliseconds: index * 100),
+                        transfromDuration: const Duration(milliseconds: 800),
+                        opacityDuration: const Duration(milliseconds: 600),
+                        child: Consumer<ReaderController>(
+                          builder: (context, readerController, _) {
+                            return VerseWidget(
+                              verse: verses[index],
+                              isBeingRead:
+                                  readerController.currentVerseIndex == index,
+                              verseNumber: index + 1,
+                            );
+                          },
                         ),
                       ),
                     ),
-                  ],
-                ),
-                Positioned.fill(
-                  child: Transform.scale(
-                    scale: 1.1,
-                    child: IgnorePointer(
-                      child: Image.asset(
-                        "assets/images/vectorized poem frame.png",
-                        fit: BoxFit.fill,
-                      ),
-                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
           SizedBox(
