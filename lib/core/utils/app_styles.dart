@@ -38,9 +38,7 @@ abstract class AppStyles {
 extension AppStylesX on BuildContext {
   TextStyle get textStyle20 => AppStyles.textStyle20;
 
-  TextStyle get textStyle18 => AppStyles.textStyle18.copyWith(
-    color: Theme.of(this).colorScheme.secondary,
-  );
+  TextStyle get textStyle18 => AppStyles.textStyle18;
 
   TextStyle get textStyle16 => AppStyles.textStyle16;
 

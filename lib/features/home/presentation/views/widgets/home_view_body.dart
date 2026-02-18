@@ -4,7 +4,7 @@ import 'package:gap/gap.dart';
 import 'package:poem_app/core/helper/constants.dart';
 import 'package:poem_app/core/widgets/staggered_animated_opacity_translation.dart';
 import 'package:poem_app/features/home/presentation/views/widgets/custom_search_field.dart';
-import 'package:poem_app/features/home/presentation/views/widgets/home_header.dart';
+import 'package:poem_app/features/home/presentation/views/widgets/page_header.dart';
 import 'package:poem_app/features/home/presentation/views/widgets/result_section.dart';
 
 class HomeViewBody extends StatelessWidget {
@@ -24,7 +24,7 @@ class HomeViewBody extends StatelessWidget {
                 children: [
                   Gap(MediaQuery.sizeOf(context).height * 0.022),
                   StaggeredAnimatedOpacityTranslation(
-                    widget: const HomeHeader(),
+                    widget: const PageHeader(subTitle: 'الصفحة الرئيسية',),
                     opacityDuration: const Duration(seconds: 1),
                     transformDuration: const Duration(milliseconds: 800),
                     xOffset: 50.w,

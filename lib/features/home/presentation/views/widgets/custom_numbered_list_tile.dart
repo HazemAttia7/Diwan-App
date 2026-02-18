@@ -25,7 +25,9 @@ class CustomNumberedListTile extends StatelessWidget {
             color: Theme.of(context).colorScheme.surfaceContainerHigh,
             borderRadius: BorderRadius.circular(16.r),
           ),
-          child: Text(number.toString(), style: context.textStyle18),
+          child: Text(number.toString(), style: context.textStyle18.copyWith(
+    color: Theme.of(context).colorScheme.secondary,
+          )),
         ),
         Gap(MediaQuery.sizeOf(context).width * 0.041),
         Expanded(

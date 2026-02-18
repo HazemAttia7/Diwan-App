@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hidden_drawer_menu/controllers/simple_hidden_drawer_controller.dart';
 import 'package:poem_app/core/controllers/theme/theme_controller.dart';
 import 'package:poem_app/core/utils/app_styles.dart';
 import 'package:poem_app/features/home/presentation/views/widgets/custom_icon_button.dart';
 import 'package:provider/provider.dart';
 
-class HomeHeader extends StatelessWidget {
-  const HomeHeader({super.key});
+class PageHeader extends StatelessWidget {
+  final String subTitle;
+  const PageHeader({super.key, required this.subTitle});
 
   @override
   Widget build(BuildContext context) {
@@ -18,6 +20,7 @@ class HomeHeader extends StatelessWidget {
           size: 24.sp,
           onTap: () {
             // TODO : Show Side Menu (Favourites , about us , contact us)
+            SimpleHiddenDrawerController.of(context).toggle(); // 👈
           },
           iconColor: Theme.of(context).textTheme.bodyLarge!.color,
         ),
@@ -25,7 +28,7 @@ class HomeHeader extends StatelessWidget {
           children: [
             Text("ديوان", style: context.textStyle20),
             Text(
-              "الصفحة الرئيسية",
+              subTitle,
               style: context.textStyle11.copyWith(
                 color: Theme.of(context).colorScheme.secondary,
               ),
