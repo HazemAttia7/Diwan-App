@@ -30,6 +30,7 @@ class HomeViewBody extends StatelessWidget {
                     xOffset: 50.w,
                   ),
                   Gap(MediaQuery.sizeOf(context).height * 0.027),
+                  // TODO : edit animation opacity problem
                   StaggeredAnimatedOpacityTranslation(
                     delay: const Duration(milliseconds: 700),
                     widget: const CustomSearchField(),

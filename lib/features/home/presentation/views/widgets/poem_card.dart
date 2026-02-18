@@ -17,49 +17,31 @@ class PoemCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(24.r),
-        color: Colors.transparent, // let Material handle the color
-        boxShadow: [
-          BoxShadow(
-            color: Theme.of(context).colorScheme.shadow.withValues(alpha: 0.07),
-            blurRadius: 20.sp,
-            spreadRadius: -2.sp,
-            offset: const Offset(0, 4),
-          ),
-        ],
-      ),
-      child: Material(
-        color: Theme.of(context).colorScheme.surfaceContainer,
-        borderRadius: BorderRadius.circular(24.r),
-        child: InkWell(
-          borderRadius: BorderRadius.circular(24.r),
-          onTap: onTap,
-          child: Padding(
-            padding: EdgeInsets.all(16.sp),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Expanded(
-                  child: CustomNumberedListTile(
-                    number: number,
-                    title: title,
-                    subtitle: subtitle,
-                    icon: Icons.insights,
-                  ),
-                ),
-                Gap(MediaQuery.sizeOf(context).height * 0.018),
-                Icon(
-                  Icons.arrow_forward_ios,
-                  size: 16.sp,
-                  color: Theme.of(
-                    context,
-                  ).colorScheme.secondary.withValues(alpha: 0.65),
-                ),
-              ],
+    return InkWell(
+      borderRadius: BorderRadius.circular(24.r),
+      onTap: onTap,
+      child: Padding(
+        padding: EdgeInsets.all(16.sp),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Expanded(
+              child: CustomNumberedListTile(
+                number: number,
+                title: title,
+                subtitle: subtitle,
+                icon: Icons.insights,
+              ),
             ),
-          ),
+            Gap(MediaQuery.sizeOf(context).height * 0.018),
+            Icon(
+              Icons.arrow_forward_ios,
+              size: 16.sp,
+              color: Theme.of(
+                context,
+              ).colorScheme.secondary.withValues(alpha: 0.65),
+            ),
+          ],
         ),
       ),
     );

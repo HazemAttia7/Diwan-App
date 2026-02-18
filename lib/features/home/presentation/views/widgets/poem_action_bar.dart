@@ -19,7 +19,7 @@ class PoemActionBar extends StatelessWidget {
       child: Ink(
         padding: EdgeInsets.symmetric(horizontal: 16.sp, vertical: 18.sp),
         decoration: BoxDecoration(
-          color: Theme.of(context).colorScheme.surfaceContainer,
+          color: Theme.of(context).colorScheme.surfaceContainerHighest,
           borderRadius: BorderRadius.circular(16.r),
           boxShadow: [
             BoxShadow(

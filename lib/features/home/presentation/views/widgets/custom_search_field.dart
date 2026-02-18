@@ -10,7 +10,7 @@ class CustomSearchField extends StatelessWidget {
     return TextField(
       decoration: InputDecoration(
         contentPadding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
-        fillColor: Theme.of(context).colorScheme.surfaceContainerHigh,
+        fillColor: Theme.of(context).colorScheme.surfaceContainerHighest,
         filled: true,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(16.r),
