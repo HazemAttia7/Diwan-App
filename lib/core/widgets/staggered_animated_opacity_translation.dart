@@ -7,7 +7,7 @@ class StaggeredAnimatedOpacityTranslation extends StatefulWidget {
   final double? xOffset, yOffset;
   final Duration? transformDuration, opacityDuration;
   final Duration delay;
-  
+
   const StaggeredAnimatedOpacityTranslation({
     super.key,
     required this.widget,
@@ -38,6 +38,7 @@ class _StaggeredAnimatedOpacityTranslationState
   @override
   Widget build(BuildContext context) {
     return AnimatedOpacityWrapper(
+      show: _show,
       duration: widget.opacityDuration,
       child: TweenAnimationBuilder(
         tween: Tween<double>(begin: 0, end: _show ? 1 : 0),

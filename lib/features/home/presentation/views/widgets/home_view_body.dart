@@ -24,15 +24,14 @@ class HomeViewBody extends StatelessWidget {
                 children: [
                   Gap(MediaQuery.sizeOf(context).height * 0.022),
                   StaggeredAnimatedOpacityTranslation(
-                    widget: const PageHeader(subTitle: 'الصفحة الرئيسية',),
+                    widget: const PageHeader(subTitle: 'الصفحة الرئيسية'),
                     opacityDuration: const Duration(seconds: 1),
                     transformDuration: const Duration(milliseconds: 800),
                     xOffset: 50.w,
                   ),
                   Gap(MediaQuery.sizeOf(context).height * 0.027),
-                  // TODO : edit animation opacity problem
                   StaggeredAnimatedOpacityTranslation(
-                    delay: const Duration(milliseconds: 700),
+                    delay: const Duration(milliseconds: 150),
                     widget: const CustomSearchField(),
                     opacityDuration: const Duration(seconds: 1),
                     transformDuration: const Duration(milliseconds: 800),
