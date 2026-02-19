@@ -52,7 +52,9 @@ class ReaderController extends ChangeNotifier {
         }
       }
     });
-    await _audioRepo.seekToVerse(1);
+    if (_currentVerseIndex == -1) {
+      await _audioRepo.seekToVerse(1);
+    }
     _isPlaying = true;
     notifyListeners();
     await _audioRepo.play();
