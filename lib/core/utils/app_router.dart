@@ -1,7 +1,7 @@
 import 'package:go_router/go_router.dart';
 import 'package:poem_app/core/controllers/font%20size/font_size_controller.dart';
 import 'package:poem_app/core/controllers/reader/reader_controller.dart';
-import 'package:poem_app/features/home/data/models/verse_model.dart';
+import 'package:poem_app/features/home/data/models/poem.dart';
 import 'package:poem_app/features/home/presentation/views/home_view.dart';
 import 'package:poem_app/features/home/presentation/views/poem_details_view.dart';
 import 'package:poem_app/features/splash/presentation/views/splash_view.dart';
@@ -23,10 +23,7 @@ abstract class AppRouter {
               ChangeNotifierProvider(create: (context) => ReaderController()),
               ChangeNotifierProvider(create: (context) => FontSizeController()),
             ],
-            child: PoemDetailsView(
-              poemTitle: args["poemTitle"],
-              verses: args["verses"] as List<Verse>,
-            ),
+            child: PoemDetailsView(poem: args["poem"] as Poem, poetName: args["poet-name"],),
           );
         },
       ),

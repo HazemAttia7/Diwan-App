@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:poem_app/core/controllers/reader/reader_controller.dart';
 import 'package:poem_app/core/widgets/staggered_animated_slide.dart';
-import 'package:poem_app/features/home/data/models/verse_model.dart';
+import 'package:poem_app/features/home/data/models/poem.dart';
 import 'package:poem_app/features/home/presentation/views/widgets/poem_action_bar.dart';
 import 'package:poem_app/features/home/presentation/views/widgets/poem_details_header.dart';
 import 'package:poem_app/features/home/presentation/views/widgets/text_size_controls.dart';
@@ -11,12 +11,11 @@ import 'package:poem_app/features/home/presentation/views/widgets/verse_widget.d
 import 'package:provider/provider.dart';
 
 class PoemDetailsViewBody extends StatelessWidget {
-  final String poemTitle;
-  final List<Verse> verses;
+  final Poem poem;
+  final String poetName;
   const PoemDetailsViewBody({
     super.key,
-    required this.poemTitle,
-    required this.verses,
+ required this.poem, required this.poetName,
   });
 
   @override
@@ -43,12 +42,12 @@ class PoemDetailsViewBody extends StatelessWidget {
                 physics: const BouncingScrollPhysics(),
                 children: [
                   Gap(MediaQuery.sizeOf(context).height * 0.02),
-                  PoemDetailsHeader(poemTitle: poemTitle),
+                  PoemDetailsHeader(poetName: poetName, poem: poem,),
                   Gap(MediaQuery.sizeOf(context).height * 0.036),
-                  PoemActionBar(verses: verses),
+                  PoemActionBar(verses: poem.verses),
                   Gap(MediaQuery.sizeOf(context).height * 0.023),
                   ...List.generate(
-                    verses.length,
+                    poem.verses.length,
                     (index) => Padding(
                       padding: EdgeInsets.only(
                         bottom: MediaQuery.sizeOf(context).height * 0.043,
@@ -60,7 +59,7 @@ class PoemDetailsViewBody extends StatelessWidget {
                         child: Consumer<ReaderController>(
                           builder: (context, readerController, _) {
                             return VerseWidget(
-                              verse: verses[index],
+                              verse: poem.verses[index],
                               isBeingRead:
                                   readerController.currentVerseIndex == index,
                               verseNumber: index + 1,
