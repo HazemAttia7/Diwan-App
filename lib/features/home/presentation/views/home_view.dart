@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:poem_app/core/utils/app_styles.dart';
 import 'package:poem_app/features/about%20us/presentation/views/about_us_view.dart';
-import 'package:poem_app/features/contact%20us/presentation/views/contact_us_view.dart';
 import 'package:poem_app/features/favorites/presentation/views/favorites_view.dart';
 import 'package:poem_app/features/home/presentation/views/widgets/home_view_body.dart';
 import 'package:hidden_drawer_menu/hidden_drawer_menu.dart';
@@ -53,16 +52,6 @@ class _HomeViewState extends State<HomeView> {
             selectedStyle: context.textStyle20,
           ),
           const AboutUsView(),
-        ),
-        ScreenHiddenDrawer(
-          ItemHiddenMenu(
-            name: "تواصل معنا",
-            baseStyle: context.textStyle18.copyWith(
-              fontWeight: FontWeight.w500,
-            ),
-            selectedStyle: context.textStyle20,
-          ),
-          const ContactUsView(),
         ),
       ],
     );
