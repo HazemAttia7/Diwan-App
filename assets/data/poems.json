@@ -4,6 +4,7 @@
             "author_name": "المتنبي",
             "poems": [
                 {
+                    "id": 1,
                     "poem_title": "الخيل والليل والبيداء تعرفني",
                     "verses_count": 38,
                     "release_year": null,
@@ -164,6 +165,7 @@
                     ]
                 },
                 {
+                    "id": 2,
                     "poem_title": "إذا غامرت في شرف مروم",
                     "verses_count": 9,
                     "release_year": null,
@@ -208,6 +210,7 @@
                     ]
                 },
                 {
+                    "id": 3,
                     "poem_title": "عيد بأي حال عدت يا عيد",
                     "verses_count": 30,
                     "release_year": null,
@@ -336,6 +339,7 @@
                     ]
                 },
                 {
+                    "id": 4,
                     "poem_title": "على قدر أهل العزم تأتي العزائم",
                     "verses_count": 46,
                     "release_year": null,
@@ -528,6 +532,7 @@
                     ]
                 },
                 {
+                    "id": 5,
                     "poem_title": "صحب الناس قبلنا ذا الزمانا",
                     "verses_count": 10,
                     "release_year": null,
@@ -581,6 +586,7 @@
             "author_name": "أحمد شوقي",
             "poems": [
                 {
+                    "id": 6,
                     "poem_title": "سما يناغي الشهبا",
                     "verses_count": 190,
                     "release_year": 1909,
@@ -765,6 +771,7 @@
                     ]
                 },
                 {
+                    "id": 7,
                     "poem_title": "اختلاف النهار والليل ينسي",
                     "verses_count": 12,
                     "release_year": 1919,
@@ -1213,6 +1220,7 @@
                     ]
                 },
                 {
+                    "id" : 8,
                     "poem_title": "قم للمعلم وفه التبجيلا",
                     "verses_count": 66,
                     "release_year": 1928,
@@ -1485,6 +1493,7 @@
                     ]
                 },
                 {
+                    "id": 9,
                     "poem_title": "ولد الهدى فالكائنات ضياء",
                     "verses_count": 45,
                     "release_year": 1913,
@@ -1673,6 +1682,7 @@
                     ]
                 },
                 {
+                    "id": 10,
                     "poem_title": "إلى عرفات الله يا خير زائر",
                     "verses_count": 22,
                     "release_year": null,

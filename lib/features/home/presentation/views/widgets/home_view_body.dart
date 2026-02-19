@@ -108,7 +108,6 @@ class _HomeViewBodyState extends State<HomeViewBody> {
                         Gap(MediaQuery.sizeOf(context).height * 0.027),
                         StaggeredAnimatedOpacityTranslation(
                           delay: const Duration(milliseconds: 150),
-                          // TODO : implement search debounce
                           widget: CustomSearchField(onChanged: _onSearch),
                           opacityDuration: const Duration(seconds: 1),
                           transformDuration: const Duration(milliseconds: 800),

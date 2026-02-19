@@ -12,6 +12,7 @@ class AboutUsViewBody extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: kHorizontalPagePadding),
         child: const Column(
           children: [
+            // TODO : Implement About Us view
             PageHeader(subTitle: 'من نحن'),
             Expanded(child: Center(child: Text("صفحة من نحن"))),
           ],

@@ -1,4 +1,4 @@
-import 'package:poem_app/features/home/data/models/poem.dart';
+import 'package:poem_app/features/home/data/models/poem_model.dart';
 
 class Poet {
   final String name;

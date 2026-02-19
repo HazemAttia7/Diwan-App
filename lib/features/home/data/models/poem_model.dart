@@ -1,6 +1,7 @@
 import 'package:poem_app/features/home/data/models/verse_model.dart';
 
 class Poem {
+  final int id;
   final String title;
   final int versesCount;
   final int? releaseYear;
@@ -12,11 +13,12 @@ class Poem {
     required this.versesCount,
     this.releaseYear,
     this.occasionStory,
-    required this.verses,
+    required this.verses, required this.id,
   });
 
   factory Poem.fromJson(Map<String, dynamic> json) {
     return Poem(
+      id: json['id'],
       title: json['poem_title'],
       versesCount: json['verses_count'],
       releaseYear: json['release_year'],
@@ -28,6 +30,7 @@ class Poem {
   }
 
   Map<String, dynamic> toJson() => {
+    'id': id,
     'title': title,
     'versesCount': versesCount,
     'releaseYear': releaseYear,

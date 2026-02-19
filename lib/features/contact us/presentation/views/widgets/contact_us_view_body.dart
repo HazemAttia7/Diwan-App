@@ -12,6 +12,7 @@ class ContactUsViewBody extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: kHorizontalPagePadding),
         child: const Column(
           children: [
+            // TODO : Implement Contact Us view
             PageHeader(subTitle: 'تواصل معنا'),
             Expanded(child: Center(child: Text("صفحة تواصل معنا"))),
           ],

@@ -16,7 +16,8 @@ class ResultSection extends StatelessWidget {
     final poems = poets.expand((poet) => poet.poems).toList();
 
     return poems.isEmpty
-        ? SliverToBoxAdapter(
+        ? SliverFillRemaining(
+            hasScrollBody: false,
             child: Center(
               child: Text("لا يوجد قصائد", style: context.textStyle16),
             ),

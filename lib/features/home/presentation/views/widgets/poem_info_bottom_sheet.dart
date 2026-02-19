@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:poem_app/core/helper/constants.dart';
 import 'package:poem_app/core/utils/app_styles.dart';
-import 'package:poem_app/features/home/data/models/poem.dart';
+import 'package:poem_app/features/home/data/models/poem_model.dart';
 import 'package:poem_app/features/home/presentation/views/widgets/custom_divider.dart';
 import 'package:poem_app/features/home/presentation/views/widgets/poem_info_rich_text_unit.dart';
 import 'package:poem_app/features/home/presentation/views/widgets/poem_info_unit.dart';

@@ -20,7 +20,7 @@ class PageHeader extends StatelessWidget {
           size: 24.sp,
           onTap: () {
             // TODO : Show Side Menu (Favourites , about us , contact us)
-            SimpleHiddenDrawerController.of(context).toggle(); // 👈
+            SimpleHiddenDrawerController.of(context).toggle(); 
           },
           iconColor: Theme.of(context).textTheme.bodyLarge!.color,
         ),
