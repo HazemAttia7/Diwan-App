@@ -36,7 +36,6 @@ class PoemDetailsHeader extends StatelessWidget {
           size: 24.sp,
           iconColor: Theme.of(context).textTheme.bodyLarge!.color,
           onTap: () {
-            // TODO : Info about the poem and author
             showModalBottomSheet(
               isScrollControlled: true,
               elevation: 10,

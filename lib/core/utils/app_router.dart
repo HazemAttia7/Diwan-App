@@ -2,6 +2,7 @@ import 'package:go_router/go_router.dart';
 import 'package:poem_app/core/controllers/font%20size/font_size_controller.dart';
 import 'package:poem_app/core/controllers/reader/reader_controller.dart';
 import 'package:poem_app/features/home/data/models/poem_model.dart';
+import 'package:poem_app/features/home/data/repos/audio_player_repo_impl.dart';
 import 'package:poem_app/features/home/presentation/views/home_view.dart';
 import 'package:poem_app/features/home/presentation/views/poem_details_view.dart';
 import 'package:poem_app/features/splash/presentation/views/splash_view.dart';
@@ -20,7 +21,10 @@ abstract class AppRouter {
           final args = state.extra as Map<String, dynamic>;
           return MultiProvider(
             providers: [
-              ChangeNotifierProvider(create: (context) => ReaderController()),
+              ChangeNotifierProvider(
+                create: (context) =>
+                    ReaderController(audioRepo: AudioPlayerRepoImpl()),
+              ),
               ChangeNotifierProvider(create: (context) => FontSizeController()),
             ],
             child: PoemDetailsView(

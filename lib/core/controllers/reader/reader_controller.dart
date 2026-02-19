@@ -1,54 +1,88 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:poem_app/features/home/data/models/verse_model.dart';
+import 'package:poem_app/features/home/data/repos/audio_player_repo.dart';
 
 class ReaderController extends ChangeNotifier {
+  final AudioPlayerRepo _audioRepo;
+  bool _isInitialized = false;
+  ReaderController({required AudioPlayerRepo audioRepo})
+    : _audioRepo = audioRepo;
+
   int _currentVerseIndex = -1;
   bool _isPlaying = false;
-  bool _shouldStop = false;
-  bool _isDisposed = false;
+  StreamSubscription<int?>? _verseSubscription;
 
   int get currentVerseIndex => _currentVerseIndex;
   bool get isPlaying => _isPlaying;
 
-  void play({required List<Verse> verses}) async {
-    _isPlaying = true;
-    _shouldStop = false;
-    notifyListeners();
-    _currentVerseIndex = _currentVerseIndex == -1 ? 0 : _currentVerseIndex;
-    for (int i = _currentVerseIndex; i < verses.length; i++) {
-      if (_shouldStop) break;
-
-      _currentVerseIndex = i;
-      notifyListeners();
-
-      await Future.delayed(const Duration(seconds: 1));
-
-      if (_isDisposed) return;
+  Future<void> init({
+    required String audioPath,
+    required String audioTimestampsPath,
+  }) async {
+    if (_isInitialized || audioPath.isEmpty || audioTimestampsPath.isEmpty) {
+      return;
     }
-    if (!_shouldStop) _currentVerseIndex = -1;
-    _stopInternal();
+
+    _isInitialized = true;
+
+    await _audioRepo.init(
+      audioPath: audioPath,
+      audioTimestampsPath: audioTimestampsPath,
+    );
+
+    _verseSubscription = _audioRepo.activeVerseStream.listen((verseNumber) {
+      if (verseNumber != null) {
+        final newIndex = verseNumber - 1;
+        if (newIndex != _currentVerseIndex) {
+          _currentVerseIndex = newIndex;
+          notifyListeners();
+        }
+      }
+    });
   }
 
-  void pause() {
-    _shouldStop = true;
-    _stopInternal();
+  Future<void> play({required List<Verse> verses}) async {
+    _verseSubscription ??= _audioRepo.activeVerseStream.listen((verseNumber) {
+      if (verseNumber != null) {
+        final newIndex = verseNumber - 1;
+        if (newIndex != _currentVerseIndex) {
+          _currentVerseIndex = newIndex;
+          notifyListeners();
+        }
+      }
+    });
+    await _audioRepo.seekToVerse(1);
+    _isPlaying = true;
+    notifyListeners();
+    await _audioRepo.play();
   }
 
-  void stop() {
-    _shouldStop = true;
-    _currentVerseIndex = -1;
-    _stopInternal();
-  }
-
-  void _stopInternal() {
+  Future<void> pause() async {
     _isPlaying = false;
     notifyListeners();
+    await _audioRepo.pause();
+  }
+
+  Future<void> seekToVerse(int verseIndex) async {
+    await _audioRepo.seekToVerse(verseIndex + 1);
+  }
+
+  Future<void> stop() async {
+    await _verseSubscription?.cancel();
+    _verseSubscription = null;
+    _isPlaying = false;
+    _currentVerseIndex = -1;
+    _isInitialized = false;
+    notifyListeners();
+    await _audioRepo.pause();
+    await _audioRepo.seekToVerse(1);
   }
 
   @override
   void dispose() {
-    _shouldStop = true;
-    _isDisposed = true;
+    _verseSubscription?.cancel();
+    _audioRepo.dispose();
     super.dispose();
   }
 }

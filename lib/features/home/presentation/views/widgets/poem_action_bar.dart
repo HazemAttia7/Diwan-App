@@ -8,6 +8,7 @@ import 'package:poem_app/features/home/presentation/views/widgets/custom_icon_bu
 import 'package:poem_app/features/home/presentation/views/widgets/custom_save_button.dart';
 import 'package:poem_app/features/home/presentation/views/widgets/play_button.dart';
 import 'package:provider/provider.dart';
+import 'package:share_plus/share_plus.dart';
 
 class PoemActionBar extends StatefulWidget {
   final Poem poem;
@@ -25,11 +26,21 @@ class _PoemActionBarState extends State<PoemActionBar> {
   void initState() {
     super.initState();
     _loadSavedState();
+    _initAudio();
   }
 
   Future<void> _loadSavedState() async {
     final saved = await _repo.isPoemSaved(widget.poem.id);
     setState(() => _isSaved = saved);
+  }
+
+  Future<void> _initAudio() async {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      context.read<ReaderController>().init(
+        audioPath: widget.poem.audioPath ?? "",
+        audioTimestampsPath: widget.poem.audioTimestampsPath ?? "",
+      );
+    });
   }
 
   Future<void> _toggleSave() async {
@@ -42,9 +53,28 @@ class _PoemActionBarState extends State<PoemActionBar> {
     setState(() => _isSaved = !_isSaved);
   }
 
+  void _sharePoem() {
+    final text = widget.poem.verses
+        .map((v) => '${v.firstHemistich}  ${v.secondHemistich}')
+        .join('\n');
+    SharePlus.instance.share(
+      ShareParams(text: '${widget.poem.title}\n\n$text'),
+    );
+  }
+
+  void _handleStopOrShare() {
+    final controller = context.read<ReaderController>();
+    if (controller.isPlaying) {
+      controller.stop();
+    } else {
+      _sharePoem();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final readerController = context.watch<ReaderController>();
+
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 32.sp),
       child: Ink(
@@ -73,20 +103,15 @@ class _PoemActionBarState extends State<PoemActionBar> {
                   : Theme.of(context).textTheme.bodyLarge!.color,
               onTap: _toggleSave,
             ),
-            // TODO : Implement TTS for a mp3 file in the assets/audio folder (Search for the implementation)
-            PlayButton(verses: widget.poem.verses),
-            // TODO : Share the poem
+            if (widget.poem.audioPath != null &&
+                widget.poem.audioPath!.isNotEmpty)
+              PlayButton(verses: widget.poem.verses),
             CustomIconButton(
               icon: readerController.isPlaying
                   ? Icons.stop
                   : Icons.share_outlined,
               size: 26.sp,
-              onTap: () {
-                if (context.read<ReaderController>().isPlaying) {
-                  context.read<ReaderController>().stop();
-                  return;
-                }
-              },
+              onTap: _handleStopOrShare,
               iconColor: readerController.isPlaying
                   ? Theme.of(context).colorScheme.secondary
                   : Theme.of(context).textTheme.bodyLarge!.color,

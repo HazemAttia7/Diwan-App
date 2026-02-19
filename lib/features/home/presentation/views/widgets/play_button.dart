@@ -10,7 +10,7 @@ class PlayButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final readerController = context.read<ReaderController>();
+    final readerController = context.watch<ReaderController>();
 
     return SizedBox(
       width: 50.sp,
