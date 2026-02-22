@@ -10,7 +10,7 @@ class HomeRepoImpl implements HomeRepo {
   Future<List<Poem>> getPoems() async {
     try {
       final String jsonString = await rootBundle.loadString(
-        'assets/data/poems.json',
+        'lib/data/poems.json',
       );
 
       final Map<String, dynamic> jsonData = json.decode(jsonString);
@@ -29,7 +29,7 @@ class HomeRepoImpl implements HomeRepo {
   Future<List<Poet>> getPoets() async {
     try {
       final String jsonString = await rootBundle.loadString(
-        'assets/data/poems.json',
+        'lib/data/poems.json',
       );
 
       final Map<String, dynamic> jsonData = json.decode(jsonString);

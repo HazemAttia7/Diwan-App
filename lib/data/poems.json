@@ -9,8 +9,8 @@
                     "verses_count": 38,
                     "release_year": null,
                     "occasion_story": "قالها في مدح سيف الدولة الحمداني، ويفتخر فيها بنفسه وشجاعته.",
-                    "audio_path": "assets/audio/الخيل والليل والبيداء تعرفني.mp3",
-                    "audio_timestamps_path": "assets/audio/الخيل والليل والبيداء تعرفني_timestamps.json",
+                    "audio_path": "lib/data/audio/الخيل والليل والبيداء تعرفني.mp3",
+                    "audio_timestamps_path": "lib/data/audio/الخيل والليل والبيداء تعرفني_timestamps.json",
                     "verses": [
                         {
                             "first_hemistich": "وَاحَـرّ قَلْبـاهُ مـمّنْ قَلْبُـهُ شَبِـمُ",
