@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:poem_app/core/controllers/font%20size/font_size_controller.dart';
 import 'package:poem_app/core/helper/convet_to_arabic_number.dart';
 import 'package:poem_app/core/utils/app_styles.dart';
@@ -60,7 +59,7 @@ class VerseWidget extends StatelessWidget {
                         verse.firstHemistich,
                         textAlign: TextAlign.start,
                         style: context.textStyle16.copyWith(
-                          fontFamily: GoogleFonts.amiri().fontFamily,
+                          fontFamily: "Amiri",
                           fontSize:
                               (context.textStyle16.fontSize ?? 16.sp) *
                               fontSizeController.fontSizeMultiplier,
@@ -75,7 +74,7 @@ class VerseWidget extends StatelessWidget {
                       verse.secondHemistich,
                       textAlign: TextAlign.end,
                       style: context.textStyle16.copyWith(
-                        fontFamily: GoogleFonts.amiri().fontFamily,
+                        fontFamily: "Amiri",
                         fontSize:
                             (context.textStyle16.fontSize ?? 16.sp) *
                             fontSizeController.fontSizeMultiplier,

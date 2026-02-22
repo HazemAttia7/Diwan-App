@@ -37,7 +37,6 @@ dependencies:
   flutter_screenutil: ^5.9.3
   gap: ^3.0.1
   go_router: ^17.1.0
-  google_fonts: ^8.0.1
   hidden_drawer_menu: ^3.0.1
   just_audio: ^0.10.5
   like_button: ^2.1.0
@@ -63,8 +62,8 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/
-    - assets/data/
-    - assets/audio/
+    - lib/data/
+    - lib/data/audio/
   #   - images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
@@ -75,7 +74,44 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
+  fonts:
+    - family: Amiri
+      fonts:
+        - asset: assets/fonts/Amiri-Regular.ttf
+        - asset: assets/fonts/Amiri-Italic.ttf
+          style: italic
+        - asset: assets/fonts/Amiri-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Amiri-BoldItalic.ttf
+          weight: 700
+          style: italic
+
+    - family: NotoNastaliqUrdu
+      fonts:
+        - asset: assets/fonts/NotoNastaliqUrdu-Regular.ttf
+        - asset: assets/fonts/NotoNastaliqUrdu-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/NotoNastaliqUrdu-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/NotoNastaliqUrdu-Bold.ttf
+          weight: 700
+
+    - family: Tajawal
+      fonts:
+        - asset: assets/fonts/Tajawal-ExtraLight.ttf
+          weight: 200
+        - asset: assets/fonts/Tajawal-Light.ttf
+          weight: 300
+        - asset: assets/fonts/Tajawal-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Tajawal-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Tajawal-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Tajawal-ExtraBold.ttf
+          weight: 800
+        - asset: assets/fonts/Tajawal-Black.ttf
+          weight: 900
   #   - family: Schyler
   #     fonts:
   #       - asset: fonts/Schyler-Regular.ttf

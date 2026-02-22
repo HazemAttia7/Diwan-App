@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:poem_app/core/utils/app_styles.dart';
 
 class SolganSection extends StatelessWidget {
@@ -13,7 +12,7 @@ class SolganSection extends StatelessWidget {
         Text(
           '"موسوعة الشعر العربي في يدك"',
           style: context.textStyle20.copyWith(
-            fontFamily: GoogleFonts.notoNastaliqUrdu().fontFamily,
+            fontFamily: "NotoNastaliqUrdu"
           ),
         ),
         Gap(MediaQuery.sizeOf(context).height * 0.03),

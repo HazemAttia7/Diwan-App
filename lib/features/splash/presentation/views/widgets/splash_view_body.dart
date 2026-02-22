@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 class SplashViewBody extends StatelessWidget {
@@ -21,7 +20,7 @@ class SplashViewBody extends StatelessWidget {
             style: TextStyle(
               fontSize: 47.h + 1.w,
               fontWeight: FontWeight.bold,
-              fontFamily: GoogleFonts.notoNastaliqUrdu().fontFamily,
+              fontFamily: "NotoNastaliqUrdu",
               color: Theme.of(context).colorScheme.primary,
               letterSpacing: 2.sp,
             ),

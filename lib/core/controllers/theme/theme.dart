@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 ThemeData lightTheme = ThemeData.light().copyWith(
   scaffoldBackgroundColor: const Color(0xFFF4EFE6),
   brightness: Brightness.light,
-  textTheme: GoogleFonts.tajawalTextTheme().apply(
+  textTheme: const TextTheme().apply(
+    fontFamily: "Tajawal",
     bodyColor: const Color(0xFF2F5D62),
     displayColor: const Color(0xFF7A3E3E),
   ),
@@ -25,7 +25,8 @@ ThemeData lightTheme = ThemeData.light().copyWith(
 ThemeData darkTheme = ThemeData.dark().copyWith(
   brightness: Brightness.dark,
   scaffoldBackgroundColor: const Color(0xFF1D1D1D),
-  textTheme: GoogleFonts.tajawalTextTheme().apply(
+  textTheme: const TextTheme().apply(
+    fontFamily: "Tajawal",
     bodyColor: const Color(0xFFB8D4D7),
     displayColor: const Color(0xFFE3A8A8),
   ),
